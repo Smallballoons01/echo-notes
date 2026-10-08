@@ -1,0 +1,16 @@
+# Echo Notes 回声笔记 bundle layer.
+#
+# One Host row owns the vault, the tools, the skill, the reminder loop and the
+# Client-facing HTTP API. The Client half is loaded by the `dsh.client` manifest
+# section in package.json, not by a second row.
+- insert:
+    - id: echo-notes
+      name: '@dsh-plugin/echo-notes'
+      config:
+        # Auto-lock the vault after this many minutes idle. 0 keeps it unlocked
+        # for the life of the session.
+        autoLockMinutes: 0
+        # Default local time used by a reminder created without an explicit one.
+        defaultReminder: '21:30'
+        # Encrypt note bodies as soon as a vault exists.
+        encryptByDefault: true
