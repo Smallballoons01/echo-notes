@@ -1,6 +1,6 @@
 {
   "name": "@dsh-plugin/echo-notes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Echo Notes 回声笔记 — emotion-first encrypted diary, templates, and writing reminders for DeepSeek Harness.",
   "license": "MIT",
