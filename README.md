@@ -167,10 +167,11 @@ listed in the lockfile. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidance.
   skipped.
 - **Search requires an unlocked vault.** Matching happens against decrypted
   bodies in memory, so a locked vault can list metadata but cannot search text.
-- **Verified without a browser.** The panel's slots, registration and rendering
-  are covered by tests that execute the real component bodies, and the theme
-  tokens are checked mechanically. Visual appearance in the running Web UI has
-  not been confirmed by eye in this environment.
+- **Browser-verified panel.** `test/browser-smoke.mjs` (`pnpm test:browser`,
+  needs a running `dsh web` and Playwright) drives the real Web UI: the
+  sidebar entry opens the panel, the first-run passphrase card renders, and
+  the `--dsw-alias-*` tokens resolve to different palettes under light and
+  dark schemes. Verified against DeepSeek Harness 0.2.1-alpha.3.
 
 ## Storage schema
 

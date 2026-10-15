@@ -18,6 +18,7 @@
   "packageManager": "pnpm@10.33.4",
   "scripts": {
     "test": "node --test",
+    "test:browser": "node test/browser-smoke.mjs",
     "check": "node --check index.js && node --check client.js && node --check mcp/stdio.js",
     "mcp": "node mcp/stdio.js"
   },
