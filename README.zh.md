@@ -150,7 +150,7 @@ DSH_WEB_URL="http://127.0.0.1:8321/?token=…" pnpm test:browser
   错过的那次直接跳过。
 - **搜索需要密钥库处于解锁状态。** 匹配是对内存里解密后的正文做的，所以锁着的密钥库可以
   列出元数据，但搜不了正文。
-- **面板经过真实浏览器验证。** `test/browser-smoke.mjs`（`pnpm test:browser`，需要跑着的
+- **面板经过真实浏览器验证。** `scripts/browser-smoke.mjs`（`pnpm test:browser`，需要跑着的
   `dsh web` 与 Playwright）驱动真实的 Web UI：侧边栏入口能打开面板、首次运行的密码卡片
   能渲染，且 `--dsw-alias-*` 主题 token 在浅色与深色方案下解析出不同的调色板。
   已在 DeepSeek Harness 0.2.1-alpha.4 上验证。

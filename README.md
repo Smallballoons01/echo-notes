@@ -173,7 +173,7 @@ and the lockfile pins `0.2.1-alpha.4` together with its companion versions
   skipped.
 - **Search requires an unlocked vault.** Matching happens against decrypted
   bodies in memory, so a locked vault can list metadata but cannot search text.
-- **Browser-verified panel.** `test/browser-smoke.mjs` (`pnpm test:browser`,
+- **Browser-verified panel.** `scripts/browser-smoke.mjs` (`pnpm test:browser`,
   needs a running `dsh web` and Playwright) drives the real Web UI: the
   sidebar entry opens the panel, the first-run passphrase card renders, and
   the `--dsw-alias-*` tokens resolve to different palettes under light and
