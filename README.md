@@ -48,11 +48,9 @@ create a vault.
 
 ### DeepSeek Harness (published release)
 
-After the project is pushed to GitHub and the `repository`, `homepage`, and
-`bugs` fields in `package.json` are updated, publish a tagged GitHub release or
-npm package according to the chosen distribution. Install the release package
-through DSH Plugin Manager. Do not publish while the `REPLACE_WITH_OWNER`
-placeholders remain. See [RELEASING.md](RELEASING.md) for the checklist.
+Install the tagged GitHub release through the DSH Plugin Manager. The repository,
+`homepage`, and `bugs` fields in `package.json` already point at this project.
+See [RELEASING.md](RELEASING.md) for the release checklist.
 
 ### Other Agent hosts
 
@@ -148,6 +146,14 @@ portability, MCP stdio JSON-RPC, and Client view rendering. The profile install
 uses DSH-owned package peers; local development uses the exact peer versions
 listed in the lockfile. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidance.
 
+The Harness versions this plugin develops against are published to npm but
+**not under the `latest` tag** — npm's `latest` for `@deepseek-ai/dsh-tools` is
+still the placeholder `0.0.1-rc.1`. They are reached through the `alpha` tag,
+and the lockfile pins `0.2.1-alpha.4` together with its companion versions
+`@deepseek-ai/cordis` `4.0.5-alpha.2` and `@deepseek-ai/schemastery`
+`3.18.5-alpha.2`. The lockfile is committed and CI installs with
+`--frozen-lockfile`, so a dependency change must move the lockfile with it.
+
 ## Limitations
 
 - **Metadata remains plaintext.** Titles, mood, tags, timestamps, word counts
@@ -171,7 +177,7 @@ listed in the lockfile. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidance.
   needs a running `dsh web` and Playwright) drives the real Web UI: the
   sidebar entry opens the panel, the first-run passphrase card renders, and
   the `--dsw-alias-*` tokens resolve to different palettes under light and
-  dark schemes. Verified against DeepSeek Harness 0.2.1-alpha.3.
+  dark schemes. Verified against DeepSeek Harness 0.2.1-alpha.4.
 
 ## Storage schema
 

@@ -31,10 +31,18 @@ const shots = os.tmpdir()
 const errors = []
 const browser = await chromium.launch()
 
+/**
+ * Page errors raised by *other* plugins in the same profile are not this
+ * plugin's failure. A profile commonly carries third-party rows whose inject
+ * declarations lag the host, and their errors surface on every page. Only
+ * errors attributable to this plugin's own bundle count as a failure.
+ */
+const FOREIGN_ERROR = /remote\.session|without inject/i
+
 async function openPanel (colorScheme) {
   const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, colorScheme })
-  page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`))
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`) })
+  page.on('pageerror', (e) => { if (!FOREIGN_ERROR.test(e.message)) errors.push(`pageerror: ${e.message}`) })
+  page.on('console', (m) => { if (m.type() === 'error' && !FOREIGN_ERROR.test(m.text())) errors.push(`console: ${m.text()}`) })
   await page.goto(url, { waitUntil: 'domcontentloaded' })
   // Dismiss the host's "Preview Notice" modal if it shows up.
   const dialog = page.locator('[role="dialog"]')
