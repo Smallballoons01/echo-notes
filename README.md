@@ -149,9 +149,9 @@ listed in the lockfile. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidance.
 The Harness versions this plugin develops against are published to npm but
 **not under the `latest` tag** — npm's `latest` for `@deepseek-ai/dsh-tools` is
 still the placeholder `0.0.1-rc.1`. They are reached through the `alpha` tag,
-and the lockfile pins `0.2.1-alpha.4` together with its companion versions
-`@deepseek-ai/cordis` `4.0.5-alpha.2` and `@deepseek-ai/schemastery`
-`3.18.5-alpha.2`. The lockfile is committed and CI installs with
+and the lockfile pins `0.2.2-alpha.2` together with its companion versions
+`@deepseek-ai/cordis` `4.0.6-alpha.1` and `@deepseek-ai/schemastery`
+`3.18.6-alpha.1`. The lockfile is committed and CI installs with
 `--frozen-lockfile`, so a dependency change must move the lockfile with it.
 
 ## Limitations
@@ -177,7 +177,7 @@ and the lockfile pins `0.2.1-alpha.4` together with its companion versions
   needs a running `dsh web` and Playwright) drives the real Web UI: the
   sidebar entry opens the panel, the first-run passphrase card renders, and
   the `--dsw-alias-*` tokens resolve to different palettes under light and
-  dark schemes. Verified against DeepSeek Harness 0.2.1-alpha.4.
+  dark schemes. Verified against DeepSeek Harness 0.2.2-alpha.2.
 
 ## Storage schema
 
